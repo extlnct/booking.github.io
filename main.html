@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script src="main.js"></script>
+
+    <style>
+        body,
+        .dateInp,
+        .ageInp,
+        .numInp,
+        .fioInp,
+        .roomSel {
+            background-color: #ffe6f2;
+        }
+
+        body {
+            overflow:visible;
+        }
+
+        .div-buttons{
+            display: flex;
+            align-items: center;
+            padding-left: 5px;
+            
+        }
+
+        .button {
+            width: 220px;
+            height: 55px;
+            border-radius: 50px;
+            border: 1px solid #ff66a3;
+            font-size: 20px;
+            margin: auto;
+            text-align: center;
+            background-color: #ff99cc;
+            color: #8c004d;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff66a3;
+            transform: scale(1.05);
+        }
+
+        .elements {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 650px;
+            height: 30px;
+            font-size: 20px;
+            color: #cc0066;
+        }
+
+        .element {
+            justify-content: left;
+            align-items: center;
+            margin: 0 25px 0 25px;
+            font-size: 20px;
+        }
+
+        .elementik {
+            justify-content: left;
+            align-items: center;
+            margin: 0 25px 0 25px;
+            font-size: 20px;
+        }
+
+        .container {
+            margin-top: 1%;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-elem {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 650px;
+            height: 815px;
+            border: 5px groove #ff66a3;
+            border-radius: 8px;
+            box-shadow: 0 6px 27px rgba(255, 102, 163, 0.3);
+            background: linear-gradient(135deg, #fff0f7, #ffe6f2);
+        }
+
+        .container-elem-book {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            width: 650px;
+            height: 815px;
+            border: 5px groove #ff66a3;
+            border-radius: 8px;
+            font-size: 20px;
+            box-shadow: 0 6px 27px rgba(255, 102, 163, 0.3);
+        }
+
+        .numInp {
+            width: 150px;
+            border: 0.5px ridge #ff66a3;
+            border-radius: 7px;
+            outline: 0;
+            font-size: 20px;
+            text-align: center;
+            margin: 5px 15px;
+            background-color: #fff0f7;
+        }
+
+        .dateInp {
+            width: 150px;
+            border: 0.5px ridge #ff66a3;
+            border-radius: 7px;
+            outline: 0;
+            font-size: 20px;
+            text-align: center;
+            margin: 5px 15px;
+            background-color: #fff0f7;
+        }
+
+        .roomSel {
+            width: 50px;
+            border: 0.5px ridge #ff66a3;
+            border-radius: 7px;
+            outline: 0;
+            font-size: 20px;
+            text-align: center;
+            margin: 5px 15px;
+            background-color: #fff0f7;
+        }
+
+        .fioInp {
+            width: 550px;
+            border: 0.5px ridge #ff66a3;
+            border-radius: 7px;
+            outline: 0;
+            font-size: 20px;
+            text-align: center;
+            margin: 5px 15px;
+            background-color: #fff0f7;
+        }
+
+        fieldset {
+            width: 360px;
+            border: 2px solid #ff66a3;
+            border-radius: 8px;
+            color: #cc0066;
+        }
+
+        legend {
+            color: #cc0066;
+            font-weight: bold;
+        }
+
+        .padding {
+            margin-top: 10px;
+        }
+
+        .label {
+            color: #cc0066;
+            font-weight: bold;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            accent-color: #ff66a3;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="container" name="form1" id="form1">
+        <div class="container-elem" id="bookingList">
+            <div class="elements">
+                <h2>Бронирование отеля "Триумф"</h2>
+            </div>
+            <div class="element" name="div_form">
+                <div>
+                    <label class="label">ФИО Бронировщика</label><label style="color: #ffe6f2;">.</label><input
+                        class="fioInp" type="text" name="fio" placeholder="Фамилия Имя Отчество">
+                </div>
+            </div>
+            <div class="element">
+                <div>
+                    <label class="label">Email для подтверждения</label>
+                    <label style="color: #ffe6f2;">.</label>
+                    <input class="fioInp" type="email" name="email" id="userEmail" placeholder="your e-mail"
+                        required>
+                </div>
+            </div>
+            <div class="element">
+                <div>
+                    <label class="label">С </label><label style="color: #ffe6f2;">.</label><input class="dateInp"
+                        type="date" name="date1" id="datenow">
+                </div>
+                <div>
+                    <label class="label">До</label><input class="dateInp" type="date" name="date2" id="dateEnd"
+                        placeholder="дд.мм.гггг">
+                </div>
+            </div>
+            <div class="element">
+                <div>
+                    <label class="label">Количество человеков:</label><label
+                        style="color: #ffe6f2;">.............</label><input class="numInp" type="number" name="num1"
+                        placeholder="0">
+                </div>
+
+            </div>
+            <div class="element">
+                <label class="label">Выберите количество комнат:</label>
+                <select name="room" class="roomSel">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <fieldset class="element">
+                <legend>Возраст</legend>
+
+                <div>
+                    <input type="radio" id="age1" />
+                    <label>0-4 года</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="age2" />
+                    <label>5-17 лет</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="age3" />
+                    <label>18 и старость</label>
+                </div>
+
+
+            </fieldset>
+            <fieldset class="elementik">
+                <legend>Дополнительные сведения <img style="width: 30px;" src="meeh.png"></legend>
+
+                <div>
+                    <input type="checkbox" name="val1" />
+                    <label>Я Егор Крид(З-з-заюш🥵)</label>
+                </div>
+
+                <div class="padding">
+                    <input type="checkbox" name="val2" />
+                    <label>С питомцами(детьми)</label>
+                </div>
+
+
+
+                <div class="padding">
+                    <input type="checkbox" name="val3" />
+                    <label>Не снимаю в тт(Боже ЗаюшШшШ🥱)</label>
+                </div>
+
+                <div class="padding">
+                    <input type="checkbox" name="val4" />
+                    <label>ЛесбиГейБиВертолетAH-64 Apache</label>
+                </div>
+
+                <div class="padding">
+                    <input type="checkbox" name="val5" />
+                    <label>Не шарю за тренды(омагад, заЮш🙄)</label>
+                </div>
+
+                <div class="padding">
+                    <input type="checkbox" name="val6" />
+                    <label>Слишком Нормис(Заюш...🤢)</label>
+                </div>
+            </fieldset>
+
+            <button class="button" type="button" onclick="bookingHotel(fio.value,date1.value,date2.value,num1.value)">
+                забронировать
+            </button>
+
+
+        </div>
+    </form>
+
+
+</body>
+
+</html>
